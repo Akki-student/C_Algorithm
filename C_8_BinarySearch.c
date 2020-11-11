@@ -9,24 +9,24 @@ typedef struct meibo
     int age;
 }MEIBO;
 
-MEIBO *search(MEIBO *p , int n , int key);
+MEIBO *search( MEIBO *p , int n , int key);
 void printData(MEIBO *p);
 int input();
 
 int main(void)
 {
     MEIBO data[N+1] = {
-        {1002 , "小林" , 18},
-        {1005 , "佐藤" , 18},
-        {1006 , "鈴木" , 18},
-        {1001 , "伊藤" , 19},
-        {1010 , "山本" , 19},
-        {1008 , "田中" , 20},
-        {1009 , "渡辺" , 20},
-        {1003 , "斎藤" , 21},
-        {1004 , "佐々木" , 23},
-        {1007 , "高橋" , 23},
-        {-1   , NULL , -1}
+        { 1002 , "小林" , 18},
+        { 1005 , "佐藤" , 18},
+        { 1006 , "鈴木" , 18},
+        { 1001 , "伊藤" , 19},
+        { 1010 , "山本" , 19},
+        { 1008 , "田中" , 20},
+        { 1009 , "渡辺" , 20},
+        { 1003 , "斎藤" , 21},
+        { 1004 , "佐々木" , 23},
+        { 1007 , "高橋" , 23},
+        { -1, NULL , -1}
     };
     
     int key;
@@ -34,7 +34,7 @@ int main(void)
     
     printf("探索したい年齢 : ");
     key = input();
-    p = search(data , N , key);
+    p = search( data , N , key);
     
     if(p != NULL){
         for( ; p -> number != -1 && p -> age == key; p++){
@@ -48,7 +48,7 @@ int main(void)
 
 //------------------------------------------------------------
 
-MEIBO *search(MEIBO *p , int n , int key)
+MEIBO *search( MEIBO *p , int n , int key)
 {
     int m;
     int m_age;
@@ -63,10 +63,10 @@ MEIBO *search(MEIBO *p , int n , int key)
             for( ; (p-1) -> age == key; p--);
         }
         else if(key < m_age){
-            p = search(p , m , key);
+            p = search( p , m , key);
         }
         else{
-            p = search(p+m+1 , n-m-1 , key);
+            p = search( p+m+1 , n-m-1 , key);
         }
     }
     else{
@@ -80,7 +80,7 @@ MEIBO *search(MEIBO *p , int n , int key)
 
 void printData(MEIBO *p)
 {
-    printf("%4d %-10s %2d才 \n" , p -> number , p -> name , p -> age);
+    printf( "%4d %-10s %2d才 \n" , p -> number , p -> name , p -> age);
 }
 
 //---------------------------------------------------------
@@ -89,7 +89,7 @@ int input()
 {
     char buff[10];
     
-    fgets(buff , sizeof(buff) , stdin);
+    fgets( buff , sizeof(buff) , stdin);
     
     return atoi(buff);
 }

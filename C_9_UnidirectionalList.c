@@ -5,7 +5,7 @@ typedef struct list{
     char       *p_name;
 }LIST;
 
-void printList( LIST *p);
+void printList(LIST *p);
 
 int main( void){
     LIST data4 = { NULL, "Yamamoto"};
@@ -14,12 +14,12 @@ int main( void){
     LIST data1 = { &data2, "Ito"};
     LIST *head = &data1;
     
-    printList( head);
+    printList(head);
 }
 
 //------------------------------------
 
-void printList( LIST *p){
+void printList(LIST *p){
     for( ; p != NULL; p = p->p_next)
     {
         printf( "%s\n", p->p_name);

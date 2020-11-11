@@ -7,10 +7,10 @@ typedef struct list
     char       *name;
 }LIST;
 
-void printList( LIST *p);
-void printListDesc( LIST *p);
+void printList(LIST *p);
+void printListDesc(LIST *p);
 
-int main( void)
+int main(void)
 {
     LIST data4 = { NULL, NULL, "Yamamoto"};
     LIST data3 = { &data4, NULL, "Sato"};
@@ -24,16 +24,16 @@ int main( void)
     data3.pre = &data2;
     data2.pre = &data1;
     
-    printf( "降順\n");
-    printList( head);
+    printf("降順\n");
+    printList(head);
     
-    printf( "\n逆順\n");
-    printListDesc( tail);
+    printf("\n逆順\n");
+    printListDesc(tail);
 }
 
 //-----------------------------
 
-void printList( LIST *p)
+void printList(LIST *p)
 {
     for( ; p != NULL; p = p->next){
         printf( "%s\n", p->name);
@@ -41,7 +41,7 @@ void printList( LIST *p)
 }
 
 //--------------------------
-void printListDesc( LIST *p)
+void printListDesc(LIST *p)
 {
     for( ; p != NULL; p = p->pre){
         printf( "%s\n", p->name);

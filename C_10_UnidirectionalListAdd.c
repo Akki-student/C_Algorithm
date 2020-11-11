@@ -8,11 +8,11 @@ typedef struct list
     char       *p_name;
 }LIST;
 
-void printList( LIST *p);
+void printList(LIST *p);
 LIST *addList( LIST *ph, char *ps);
-void freeArea( LIST *p);
+void freeArea(LIST *p);
 
-int main( void)
+int main(void)
 {
     LIST *head;
     
@@ -21,8 +21,8 @@ int main( void)
     head = addList( head, "Yamamoto");
     head = addList( head, "Sato");
     
-    printList( head);
-    freeArea( head);
+    printList(head);
+    freeArea(head);
 }
 
 //-------------------------------------
@@ -33,24 +33,24 @@ LIST *addList( LIST *ph, char *ps)
     LIST *pd;
     LIST *pb;
     
-    pd = ( LIST*)malloc( sizeof( LIST));
-    pd->p_name = ( char *)malloc( strlen( ps) + 1);
+    pd = (LIST*)malloc(sizeof(LIST));
+    pd->p_name = (char *)malloc(strlen(ps) + 1);
     strcpy( pd->p_name, ps);
     pd->p_next = NULL;
     
-    if( ph == NULL){
+    if(ph == NULL){
         ph = pd;
     }
     else{
         pb = NULL;
         p = ph;
         
-        while( p != NULL && strcmp( p->p_name, ps) < 0){
+        while(p != NULL && strcmp( p->p_name, ps) < 0){
             pb = p;
             p = p->p_next;
         }
         
-        if( pb == NULL){
+        if(pb == NULL){
             pd->p_next = p;
             ph = pd;
         }
@@ -59,20 +59,21 @@ LIST *addList( LIST *ph, char *ps)
             pb->p_next = pd;
         }
     }
+    
     return ph;
 }
 
 //-----------------------------------
 
-void freeArea( LIST *p)
+void freeArea(LIST *p)
 {
     LIST *p_next;
     
-    while( p != NULL){
+    while(p != NULL){
         p_next = p->p_next;
         printf( "%sの領域を開放します。\n", p->p_name);
-        free( p->p_name);
-        free( p);
+        free(p->p_name);
+        free(p);
         p = p_next;
     }
 }

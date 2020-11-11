@@ -9,7 +9,7 @@ int main(void)
     
     data = input();
     data = setParity(data);
-    printf("結果 : 0x%02x\n" , data);
+    printf( "結果 : 0x%02x\n" , data);
 }
 
 //------------------------------------------------
@@ -43,10 +43,10 @@ unsigned char input()
     unsigned char    data;
     
     printf("7ビットの2進数を入力 : ");
-    fgets(buff , sizeof(buff), stdin);
+    fgets( buff , sizeof(buff), stdin);
     
     data = 0;
-    for(i = 0; buff[i] == '1' || buff[i] == '0'; i++)
+    for( i = 0; buff[i] == '1' || buff[i] == '0'; i++)
     {
         data = data * 2 + (buff[i]-'0');
     }

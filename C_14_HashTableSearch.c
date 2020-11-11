@@ -27,17 +27,17 @@ int main(void)
     
     makeList( p_tbl, HASH_SIZE, data, 4);
     
-    if(( p = search( p_tbl, HASH_SIZE, "suzuki")) != NULL)
+    if((p = search( p_tbl, HASH_SIZE, "suzuki")) != NULL)
         printf( "%4d:%s\n", p->number, p->p_name);
     else
         printf( "%sはありません。\n", "suzuki");
     
-    if(( p = search( p_tbl, HASH_SIZE, "sakai")) != NULL)
+    if((p = search( p_tbl, HASH_SIZE, "sakai")) != NULL)
         printf( "%4d:%s\n", p->number, p->p_name);
     else
         printf( "%sはありません。\n", "sakai");
     
-    if(( p = search( p_tbl, HASH_SIZE, "sato")) != NULL)
+    if((p = search( p_tbl, HASH_SIZE, "sato")) != NULL)
         printf( "%4d:%s\n", p->number, p->p_name);
     else
         printf( "%sはありません。\n", "sato");
@@ -71,7 +71,7 @@ void makeList( LIST *p_tbl[], int h, LIST data[], int n)
     
     for( i = 0; i < n; i++){
         index = getHash( data[i].p_name, h);
-        if( p_tbl[index] == NULL){
+        if(p_tbl[index] == NULL){
             p_tbl[index] = &data[i];
         }
         else{
@@ -108,6 +108,6 @@ void printHash( LIST *p_tbl[], int h)
             printf( "%4d %-10s ", p->number, p->p_name);
         }
         
-        printf( "\n");
+        printf("\n");
     }
 }

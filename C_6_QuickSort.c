@@ -1,25 +1,25 @@
 #include <stdio.h>
 
-void sort(int *p , int n);
-void swap(int *p1 , int *p2);
-void printData(int *p , int n);
+void sort( int *p , int n);
+void swap( int *p1 , int *p2);
+void printData( int *p , int n);
 
 int main(void)
 {
     int data[] = {47 , 74 , 68 , 33 , 55 , 89 , 25 , 10};
     
     printf("元のデータ : ");
-    printData(data , sizeof(data)/sizeof(int));
+    printData( data , sizeof(data)/sizeof(int));
     
-    sort(data , sizeof(data)/sizeof(int));
+    sort( data , sizeof(data)/sizeof(int));
     
     printf("ソート結果 : ");
-    printData(data , sizeof(data)/sizeof(int));
+    printData( data , sizeof(data)/sizeof(int));
 }
 
 //-------------------------------------------------------
 
-void sort(int *p , int n)
+void sort( int *p , int n)
 {
     int i;
     int j;
@@ -27,7 +27,7 @@ void sort(int *p , int n)
     
     if(n == 2){
         if(*p > *(p + 1)){
-            swap(p , p + 1);
+            swap( p , p + 1);
         }
     }
     else if(n > 2){
@@ -36,19 +36,19 @@ void sort(int *p , int n)
         j = n;
         
         while(i < j){
-            for(i++; *(p+i) < t; i++);
-                for(j--; *(p+j) > t; j--);
+            for( i++; *(p+i) < t; i++);
+                for( j--; *(p+j) > t; j--);
             
             if(i < j){
-                swap(p+i , p+j);
+                swap( p+i , p+j);
             }
             else if(i == j){
-                sort(p , i);
-                sort(p+j+1 , n-j-1);
+                sort( p , i);
+                sort( p+j+1 , n-j-1);
             }
             else{
-                sort(p , j+1);
-                sort(p+i , n-i);
+                sort( p , j+1);
+                sort( p+i , n-i);
             }
         }
     }
@@ -56,12 +56,12 @@ void sort(int *p , int n)
 
 //-----------------------------------------------------
 
-void printData(int *p , int n)
+void printData( int *p , int n)
 {
     int i;
     
-    for(i = 0; i < n; i++ , p++){
-        printf("%5d" , *p);
+    for( i = 0; i < n; i++ , p++){
+        printf( "%5d" , *p);
     }
     
     printf("\n");
@@ -69,7 +69,7 @@ void printData(int *p , int n)
 
 //------------------------------------------------------
 
-void swap(int *p1 , int *p2)
+void swap( int *p1 , int *p2)
 {
     int temp;
     

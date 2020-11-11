@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define N 16
 
-int get_n(unsigned int one , int n);
+int get_n( unsigned int one , int n);
 
 int main(void)
 {
@@ -31,19 +31,19 @@ int main(void)
         n_mask += get_n(mask[i] , N);
     }
     
-    printf("黒のマスは %d 個\n 白のマスは %d 個\n 黒の割合は %.2f\n" , n_black , n_mask , (double)n_black / n_mask);
+    printf( "黒のマスは %d 個\n 白のマスは %d 個\n 黒の割合は %.2f\n" , n_black , n_mask , (double)n_black / n_mask);
     
     return 0;
 }
 
 //-----------------------------------------------------------------
 
-int get_n(unsigned int one, int n)
+int get_n( unsigned int one, int n)
 {
     int count =0;
     int i;
     
-    for(i = 0; i < N; i++ , one = one >> 1){
+    for( i = 0; i < N; i++ , one = one >> 1){
         if((one & 1) == 1)
             count++;
     }

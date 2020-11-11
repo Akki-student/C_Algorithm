@@ -40,7 +40,7 @@ void makeList( LIST *p_tbl[], int h, LIST data[], int n)
     
     for( i = 0; i < n; i++){
         index = getHash( data[i].p_name, h);
-        if( p_tbl[index] == NULL){
+        if(p_tbl[index] == NULL){
             p_tbl[index] = &data[i];
         }
         else{
@@ -77,6 +77,6 @@ void printHash( LIST *p_tbl[], int h)
             printf( "%4d %-10s ", p->number, p->p_name);
         }
         
-        printf( "\n");
+        printf("\n");
     }
 }
